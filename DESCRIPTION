@@ -1,0 +1,33 @@
+Package: template.package
+Type: Package
+Title: Boilerplate for 'tidylab' Packages
+URL: https://tidylab.github.io/template.package/
+BugReports: https://github.com/tidylab/template.package/issues
+Version: 1.20.09
+Date: 2020-01-01
+Authors@R: c(person("Harel", "Lustiger", email = "tidylab@gmail.com", role = c("aut", "cre")))
+Maintainer: Harel Lustiger <tidylab@gmail.com>
+Description: Any R package may include functions, tests, documentation and data. 
+    While the content between packages is different, package development tools 
+    and processes are often similar. `template.package` aims at:  
+    * Letting the R programmer focus on what’s important – developing the package content;  
+    * Speeding-up development time by reducing rework time spent on development tools setup; and  
+    * Laying the infrastructure needed for some good software development practices such as test-driven development.  
+    `template.package` includes:  
+    * Fully configured test-suite, including code-coverage;   
+    * Fully configured continuous-integration (CI) script for Travis; and  
+    * Fully configured continuous-development (CD) script for Travis.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.0.2
+Roxygen: list(markdown = TRUE, r6 = TRUE)
+Language: en-GB
+Depends: 
+    R (>= 3.5)
+Suggests: 
+    covr (>= 3.2.1),
+    desc (>= 1.2.0),
+    devtools (>= 2.0.2),
+    testthat (>= 2.0.1),
+    rmarkdown

@@ -1,0 +1,5 @@
+pkg_name <- eval(parse(text = 'pkgload::pkg_name(dirname(list.files("..", pattern = "DESCRIPTION", recursive = TRUE, full.names = TRUE))[[1]])'))
+library(testthat)
+library(pkg_name, character.only = TRUE)
+test_check(pkg_name)
+rm(pkg_name)
