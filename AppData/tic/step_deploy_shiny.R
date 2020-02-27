@@ -1,6 +1,7 @@
 DeployShiny <- R6::R6Class(
     "DeployShiny",
     inherit = TicStep,
+    portable = FALSE,
     public = list(
         env_var_exists = function(x) nchar(Sys.getenv(x)) > 0,
         load_app_config = function() list2env(yaml::yaml.load_file(file.path(getOption("path_dashboard"), "config.yml"), eval.expr = TRUE), globalenv()),
