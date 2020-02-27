@@ -25,3 +25,5 @@ Suggests:
     devtools (>= 2.0.2),
     testthat (>= 2.0.1),
     rmarkdown
+Imports: 
+    shiny (>= 1.4.0)

@@ -3,6 +3,8 @@
 
 <!-- badges: start -->
 
+[![Shiny
+Dashboard](https://img.shields.io/badge/Shiny%20Dashboard-Click--Here-ff8c69.svg)](https://harell.shinyapps.io/template-dashboard/)
 [![Package
 Website](https://img.shields.io/badge/Package%20Website-Click--Here-9cf.svg)](https://tidylab.github.io/template.dashboard/)
 [![Travis
