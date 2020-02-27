@@ -17,11 +17,15 @@ test_steps <- function(stage){
 
 deploy_website <- function(stage){
     stage %>%
-        add_step(step_message(c(add_hashtag_line(), "\n## Deploy\n", add_hashtag_line()))) %>%
+        add_step(step_message(c(add_hashtag_line(), "\n## Deploy Website\n", add_hashtag_line()))) %>%
         add_step(step_build_pkgdown())
 }
 
-
+deploy_shiny <- function(stage){
+    stage %>%
+        add_step(step_message(c(add_hashtag_line(), "\n## Deploy Shiny App\n", add_hashtag_line()))) %>%
+        add_step(step_deploy_shiny())
+}
 
 # branches wrappers -------------------------------------------------------
 is_master_branch <- function() "master" %in% ci_get_branch()
