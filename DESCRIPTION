@@ -26,4 +26,6 @@ Suggests:
     testthat (>= 2.0.1),
     rmarkdown
 Imports: 
-    shiny (>= 1.4.0)
+    shiny (>= 1.4.0),
+    rsconnect (>= 0.8.16),
+    yaml (>= 2.2.0)

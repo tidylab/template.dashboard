@@ -2,7 +2,6 @@
 ^\.gitattributes$
 ^\.Rprofile$
 ^.*\.Rproj$
-^\.Rproj\.user$
 ^tic\.R$
 ^codecov\.yml$
 ^\.travis\.yml$
@@ -14,7 +13,8 @@
 .*\.png$
 
 # Folders ----------------------------------------------------------------------
-^\.app/*
+^AppData$
+^\.Rproj\.user$
 ^temp/*
 ^data-raw/*
 ^public/*
@@ -25,4 +25,4 @@
 # pkgdown ----------------------------------------------------------------------
 ^vignettes/*
 ^docs/*
-^AppData$
+
