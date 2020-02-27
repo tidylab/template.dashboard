@@ -5,7 +5,7 @@ load_app_config <- function() list2env(yaml::yaml.load_file(file.path(getOption(
 # Defensive Programming ---------------------------------------------------
 stopifnot(env_var_exists("SHINY_NAME"), env_var_exists("SHINY_TOKEN"), env_var_exists("SHINY_SECRET"))
 
-# Setup ------------------------------------------------------------
+# Setup -------------------------------------------------------------------
 repo_address <- paste0(tic::ci_get_slug(),"@", tic::ci_get_branch(), collapse = "")
 remotes::install_github(repo_address)
 

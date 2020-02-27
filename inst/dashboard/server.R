@@ -8,7 +8,6 @@
 #
 
 library(shiny)
-library(devtools)
 library(template.dashboard)
 
 # Define server logic required to draw a histogram

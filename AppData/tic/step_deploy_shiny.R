@@ -20,7 +20,6 @@ DeployShiny <- R6::R6Class(
             remotes::install_github(repo_address)
 
             # Prepare Shiny ----------------------------------------------------
-            # rsconnect::appDependencies()
             options(path_dashboard = "./inst/dashboard")
             load_app_config()
             rsconnect::setAccountInfo(
