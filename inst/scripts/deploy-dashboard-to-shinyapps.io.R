@@ -6,11 +6,11 @@ load_app_config <- function() list2env(yaml::yaml.load_file(file.path(getOption(
 stopifnot(env_var_exists("SHINY_NAME"), env_var_exists("SHINY_TOKEN"), env_var_exists("SHINY_SECRET"))
 
 # Setup -------------------------------------------------------------------
+options(path_dashboard = "./inst/dashboard")
 repo_address <- paste0(tic::ci_get_slug(),"@", tic::ci_get_branch(), collapse = "")
-remotes::install_github(repo_address)
+try(remotes::install_github(repo_address))
 
 # Prepare Shiny -----------------------------------------------------------
-options(path_dashboard = "./inst/dashboard")
 load_app_config()
 rsconnect::setAccountInfo(
     name = Sys.getenv("SHINY_NAME"),
