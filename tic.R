@@ -12,8 +12,8 @@ source("./AppData/tic/helpers.R")
 
 # Stage: Before Script ----------------------------------------------------
 get_stage("before_script") %>%
-    step_run_code(remotes::install_deps(dependencies = "Imports", build = FALSE, quiet = TRUE)) %>%
-    step_run_code(try(devtools::uninstall(), silent = TRUE))
+    step_run_code(prepare_call = remotes::install_deps(dependencies = "Imports", build = FALSE, quiet = TRUE)) %>%
+    step_run_code(prepare_call = try(devtools::uninstall(), silent = TRUE))
 
 # Stage: Script -----------------------------------------------------------
 if(is_master_branch() | is_hotfix_branch()){
