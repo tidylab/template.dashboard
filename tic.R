@@ -32,6 +32,7 @@ get_stage("after_success")
 
 # Stage: After Failure ----------------------------------------------------
 get_stage("after_failure") %>%
+    add_code_step(print(sessioninfo::session_info(include_base = FALSE))) %>%
     add_code_step(print(rsconnect::appDependencies(getOption("path_dashboard"))))
 
 # Stage: Before Deploy ----------------------------------------------------

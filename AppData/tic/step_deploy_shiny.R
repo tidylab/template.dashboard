@@ -18,7 +18,7 @@ DeployShiny <- R6::R6Class(
             # Setup ------------------------------------------------------------
             options(path_dashboard = "./inst/dashboard")
             repo_address <- paste0(tic::ci_get_slug(),"@", tic::ci_get_branch(), collapse = "")
-            remotes::install_github(repo_address, force = FALSE)
+            remotes::install_github(repo_address, force = FALSE, upgrade = FALSE)
 
             # Prepare Shiny ----------------------------------------------------
             load_app_config()

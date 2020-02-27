@@ -8,7 +8,7 @@ stopifnot(env_var_exists("SHINY_NAME"), env_var_exists("SHINY_TOKEN"), env_var_e
 # Setup -------------------------------------------------------------------
 options(path_dashboard = "./inst/dashboard")
 repo_address <- paste0(tic::ci_get_slug(),"@", tic::ci_get_branch(), collapse = "")
-try(remotes::install_github(repo_address))
+remotes::install_github(repo_address, upgrade = FALSE)
 
 # Prepare Shiny -----------------------------------------------------------
 load_app_config()
