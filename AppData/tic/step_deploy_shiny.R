@@ -6,7 +6,7 @@ DeployShiny <- R6::R6Class(
         load_app_config = function() list2env(yaml::yaml.load_file(file.path(getOption("path_dashboard"), "config.yml"), eval.expr = TRUE), globalenv()),
         initialize = function(){
             remotes::install_cran(c("rsconnect", "yaml"), quiet = TRUE)
-        }
+        },
         run = function(){
             # Defensive Programming --------------------------------------------
             stopifnot(env_var_exists("SHINY_NAME"), env_var_exists("SHINY_TOKEN"), env_var_exists("SHINY_SECRET"))
