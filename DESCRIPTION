@@ -27,5 +27,5 @@ Suggests:
     rmarkdown
 Imports: 
     shiny (>= 1.4.0),
-    rsconnect (>= 0.8.0),
+    rsconnect (>= 0.8.16),
     yaml (>= 2.2.0)
