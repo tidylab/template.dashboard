@@ -15,11 +15,13 @@ test_steps <- function(stage){
         add_code_step(testthat::test_dir("./tests/testthat"))
 }
 
-deploy_steps <- function(stage){
+deploy_website <- function(stage){
     stage %>%
         add_step(step_message(c(add_hashtag_line(), "\n## Deploy\n", add_hashtag_line()))) %>%
         add_step(step_build_pkgdown())
 }
+
+
 
 # branches wrappers -------------------------------------------------------
 is_master_branch <- function() "master" %in% ci_get_branch()
