@@ -15,8 +15,12 @@ DeployShiny <- R6::R6Class(
             # Defensive Programming --------------------------------------------
             stopifnot(env_var_exists("SHINY_NAME"), env_var_exists("SHINY_TOKEN"), env_var_exists("SHINY_SECRET"))
 
-            # Prepare Shiny ----------------------------------------------------
+            # Setup ------------------------------------------------------------
             repo_address <- paste0(tic::ci_get_slug(),"@", tic::ci_get_branch(), collapse = "")
+            remotes::install_github(repo_address)
+
+            # Prepare Shiny ----------------------------------------------------
+            # rsconnect::appDependencies()
             options(path_dashboard = "./inst/dashboard")
             load_app_config()
             rsconnect::setAccountInfo(
@@ -24,7 +28,6 @@ DeployShiny <- R6::R6Class(
                 token = Sys.getenv("SHINY_TOKEN"),
                 secret = Sys.getenv("SHINY_SECRET")
             )
-            desc::description$new()$add_remotes(repo_address)$write()
 
             # Deploy Shiny -----------------------------------------------------
             rsconnect::deployApp(
@@ -34,8 +37,6 @@ DeployShiny <- R6::R6Class(
                 forceUpdate = appForceUpdate
             )
 
-            # Cleanup ----------------------------------------------------------
-            desc::description$new()$del_remotes(repo_address)$write()
         }
     )
 )

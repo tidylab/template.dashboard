@@ -9,10 +9,7 @@
 
 library(shiny)
 library(devtools)
-# try(devtools::load_all(".", helpers = FALSE, quiet = TRUE))
-devtools::install_github("tidylab/template.dashboard@feature/generate_bins")
 library(template.dashboard)
-
 
 # Define server logic required to draw a histogram
 shinyServer(function(input, output) {
