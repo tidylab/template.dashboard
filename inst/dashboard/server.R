@@ -8,7 +8,8 @@
 #
 
 library(shiny)
-library(template.dashboard)
+library(pkgload)
+pkgload::load_all(path = "./package", helpers = FALSE)
 
 # Define server logic required to draw a histogram
 shinyServer(function(input, output) {
