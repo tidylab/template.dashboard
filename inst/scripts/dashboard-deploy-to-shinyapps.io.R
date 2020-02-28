@@ -25,9 +25,6 @@ rsconnect::setAccountInfo(
     secret = Sys.getenv("SHINY_SECRET")
 )
 
-# Run Shiny ---------------------------------------------------------------
-shiny::runApp(appDir = dashboard_target)
-
 # Deploy Shiny ------------------------------------------------------------
 rsconnect::deployApp(
     appDir = getOption("path_dashboard"),
