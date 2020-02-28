@@ -11,6 +11,10 @@
     suppressWarnings(try(set_repos(), silent = TRUE))
     pkgs <- c("usethis", "testthat", "devtools")
     invisible(sapply(pkgs, require, character.only = TRUE, quietly = TRUE, warn.conflicts = FALSE))
+
+    options(dashboard_source = file.path(getwd(), "inst/dashboard"))
+    options(dashboard_target = file.path(tempdir(), "dashboard"))
+    options(path_dashboard = getOption("dashboard_target"))
 }
 
 # Last --------------------------------------------------------------------
