@@ -8,6 +8,8 @@
 #
 
 library(shiny)
+library(pkgload)
+pkgload::load_all(path = "./package", helpers = FALSE)
 
 # Define UI for application that draws a histogram
 shinyUI(fluidPage(

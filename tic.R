@@ -17,7 +17,7 @@ get_stage("before_script") %>%
 
 # Stage: Script -----------------------------------------------------------
 if(is_master_branch() | is_hotfix_branch()){
-    get_stage("script") %>% build_steps() %>% test_steps() %>% deploy_website() %>% deploy_website() %>% deploy_shiny()
+    get_stage("script") %>% build_steps() %>% test_steps() %>% deploy_website() %>% deploy_shiny()
 
 } else if (is_develop_branch() | is_release_branch()){
     get_stage("script") %>% build_steps() %>% test_steps()
@@ -46,4 +46,5 @@ if(is_master_branch()){
 get_stage("deploy") # tic deploy is disabled at config.yml
 
 # Stage: After Deploy -----------------------------------------------------
-get_stage("after_deploy")
+get_stage("after_deploy") %>%
+    add_code_step(print(rsconnect::appDependencies(getOption("path_dashboard"))))
