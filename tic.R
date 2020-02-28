@@ -20,7 +20,7 @@ if(is_master_branch() | is_hotfix_branch()){
     get_stage("script") %>% build_steps() %>% test_steps() %>% deploy_website() %>% deploy_shiny()
 
 } else if (is_develop_branch() | is_release_branch()){
-    get_stage("script") %>% build_steps() %>% test_steps()
+    get_stage("script") %>% build_steps() %>% test_steps() %>% deploy_shiny()
 
 } else if (is_feature_branch()){
     get_stage("script") %>% test_steps()

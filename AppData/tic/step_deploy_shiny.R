@@ -4,9 +4,11 @@ DeployShiny <- R6::R6Class(
     public = list(
         env_var_exists = function(x) nchar(Sys.getenv(x)) > 0,
         load_app_config = function() list2env(yaml::yaml.load_file(file.path(getOption("path_dashboard"), "config.yml"), eval.expr = TRUE), globalenv()),
-        create_dir = function(x){unlink(x, recursive = TRUE, force = TRUE); dir.create(x)},
-        initialize = function(path_dashboard = "./inst/dashboard"){
-            options(path_dashboard = path_dashboard)
+        create_dir = function(x){unlink(x, recursive = TRUE, force = TRUE); dir.create(x, FALSE, TRUE)},
+        initialize = function(dashboard_source = "./inst/dashboard"){
+            options(dashboard_source = dashboard_source)
+            options(dashboard_target = file.path(tempdir(), "dashboard"))
+            options(path_dashboard = getOption("dashboard_target"))
             remotes::install_cran(c("rsconnect", "yaml", "fs"), quiet = TRUE)
         },
         run = function(){
@@ -18,9 +20,8 @@ DeployShiny <- R6::R6Class(
             stopifnot(env_var_exists("SHINY_NAME"), env_var_exists("SHINY_TOKEN"), env_var_exists("SHINY_SECRET"))
 
             # Setup ------------------------------------------------------------
-            dashboard_source <- "./inst/dashboard"
-            dashboard_target <- file.path(tempdir(), "dashboard")
-            options(path_dashboard = dashboard_target)
+            dashboard_source <- getOption("dashboard_source")
+            dashboard_target <- getOption("dashboard_target")
             create_dir(dashboard_target)
             fs::dir_copy(dashboard_source, dirname(dashboard_target))
 
