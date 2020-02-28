@@ -28,7 +28,8 @@ if(is_master_branch() | is_hotfix_branch()){
 }
 
 # Stage: After Success ----------------------------------------------------
-get_stage("after_success")
+get_stage("after_success") %>%
+    add_code_step(print(covr::package_coverage(type = "tests")))
 
 # Stage: After Failure ----------------------------------------------------
 get_stage("after_failure") %>%
