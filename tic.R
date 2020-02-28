@@ -32,8 +32,7 @@ get_stage("after_success")
 
 # Stage: After Failure ----------------------------------------------------
 get_stage("after_failure") %>%
-    add_code_step(print(sessioninfo::session_info(include_base = FALSE))) %>%
-    add_code_step(print(rsconnect::appDependencies(getOption("path_dashboard"))))
+    add_code_step(print(sessioninfo::session_info(include_base = FALSE)))
 
 # Stage: Before Deploy ----------------------------------------------------
 get_stage("before_deploy")
@@ -47,4 +46,5 @@ if(is_master_branch()){
 get_stage("deploy") # tic deploy is disabled at config.yml
 
 # Stage: After Deploy -----------------------------------------------------
-get_stage("after_deploy")
+get_stage("after_deploy") %>%
+    add_code_step(print(rsconnect::appDependencies(getOption("path_dashboard"))))
