@@ -18,6 +18,7 @@ test_steps <- function(stage){
 deploy_website <- function(stage){
     stage %>%
         add_step(step_message(c(add_hashtag_line(), "\n## Deploy Website\n", add_hashtag_line()))) %>%
+        add_code_step(covr::codecov(quiet = FALSE)) %>%
         add_step(step_build_pkgdown())
 }
 
