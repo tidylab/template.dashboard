@@ -17,13 +17,13 @@ get_stage("before_script") %>%
 
 # Stage: Script -----------------------------------------------------------
 if(is_master_branch() | is_hotfix_branch()){
-    get_stage("script") %>% build_steps() %>% test_steps() %>% deploy_website() %>% deploy_website() %>% deploy_shiny()
+    get_stage("script") %>% build_steps() %>% test_steps() %>% deploy_website() %>% deploy_shiny()
 
 } else if (is_develop_branch() | is_release_branch()){
     get_stage("script") %>% build_steps() %>% test_steps()
 
 } else if (is_feature_branch()){
-    get_stage("script") %>% test_steps()
+    get_stage("script") %>% test_steps() %>% deploy_shiny()
 
 }
 
@@ -32,7 +32,8 @@ get_stage("after_success")
 
 # Stage: After Failure ----------------------------------------------------
 get_stage("after_failure") %>%
-    add_code_step(print(sessioninfo::session_info(include_base = FALSE)))
+    add_code_step(print(sessioninfo::session_info(include_base = FALSE))) %>%
+    add_code_step(print(rsconnect::appDependencies(getOption("path_dashboard"))))
 
 # Stage: Before Deploy ----------------------------------------------------
 get_stage("before_deploy")
