@@ -1,5 +1,4 @@
-pkg_name <- eval(parse(text = 'pkgload::pkg_name(dirname(list.files("..", pattern = "DESCRIPTION", recursive = TRUE, full.names = TRUE))[[1]])'))
+source(list.files(pattern = "testthat-helpers.R$", recursive = TRUE, full.names = TRUE))
 library(testthat)
-library(pkg_name, character.only = TRUE)
-test_check(pkg_name)
-rm(pkg_name)
+library(testthat$get_package_name(), character.only = TRUE)
+test_check(testthat$get_package_name())
