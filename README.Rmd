@@ -1,0 +1,47 @@
+---
+output: github_document
+link-citations: yes
+editor_options: 
+  canonical: true
+  markdown: 
+    wrap: 80
+    references: 
+      location: section
+---
+
+```{r setup, echo = FALSE, results = 'hide', message = FALSE, warning = FALSE}
+source(file.path(usethis::proj_get(), "vignettes",  "_common.R"))
+```
+
+# `template.dashboard` <img src="https://raw.githubusercontent.com/harell/template.dashboard/master/pkgdown/favicon/apple-touch-icon-180x180.png" align="right" style="float:right; height:75px"/>
+
+<!-- badges: start -->
+
+[![R-CMD-check](https://github.com/harell/template.dashboard/workflows/R-CMD-check/badge.svg)](https://github.com/harell/template.dashboard/actions)
+[![Codecov test
+coverage](https://codecov.io/gh/harell/template.dashboard/branch/master/graph/badge.svg)](https://codecov.io/gh/harell/template.dashboard?branch=master)
+
+<!-- badges: end -->
+
+## Overview
+
+Preconfigured dashboard that supports continuous development and deployment of a
+Shiny application. Committing to master branch triggers:
+
+-   Dashboard deployment to <https://www.shinyapps.io/> (via `rsconnect`); and
+-   Package website deployment (via `pkgdown`).
+
+## Installation
+
+You can install `template.dashboard` by using:
+
+```{r, eval=FALSE, echo=TRUE}
+install.packages("remotes")
+remotes::install_github("harell/template.dashboard")
+```
+
+## Tab Gallary
+
+```{r, echo = FALSE, out.width = "100%"}
+knitr::include_graphics("https://i.imgur.com/K37dI8n.png")
+```
