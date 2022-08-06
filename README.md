@@ -1,11 +1,11 @@
 
-# `template.dashboard` <img src="https://raw.githubusercontent.com/harell/template.dashboard/master/pkgdown/favicon/apple-touch-icon-180x180.png" align="right" style="float:right; height:75px"/>
+# `template.dashboard` <img src="https://raw.githubusercontent.com/tidylab/template.dashboard/master/pkgdown/favicon/apple-touch-icon-180x180.png" align="right" style="float:right; height:75px"/>
 
 <!-- badges: start -->
 
-[![R-CMD-check](https://github.com/harell/template.dashboard/workflows/R-CMD-check/badge.svg)](https://github.com/harell/template.dashboard/actions)
+[![R-CMD-check](https://github.com/tidylab/template.dashboard/workflows/R-CMD-check/badge.svg)](https://github.com/tidylab/template.dashboard/actions)
 [![Codecov test
-coverage](https://codecov.io/gh/harell/template.dashboard/branch/master/graph/badge.svg)](https://codecov.io/gh/harell/template.dashboard?branch=master)
+coverage](https://codecov.io/gh/tidylab/template.dashboard/branch/master/graph/badge.svg)](https://codecov.io/gh/tidylab/template.dashboard?branch=master)
 
 <!-- badges: end -->
 
@@ -24,7 +24,7 @@ You can install `template.dashboard` by using:
 
 ``` r
 install.packages("remotes")
-remotes::install_github("harell/template.dashboard")
+remotes::install_github("tidylab/template.dashboard")
 ```
 
 ## Tab Gallary
