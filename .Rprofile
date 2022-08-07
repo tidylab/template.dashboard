@@ -1,21 +1,15 @@
-# First -------------------------------------------------------------------
+# .First ------------------------------------------------------------------
 .First <- function(){
-    # Helper Functions ---------------------------------------------------------
-    set_repos <- function(){
-        DESCRIPTION <- readLines("DESCRIPTION")
-        Date <- trimws(gsub("Date:", "", DESCRIPTION[grepl("Date:", DESCRIPTION)]))
-        if(length(Date) == 1) options(repos = paste0("https://mran.microsoft.com/snapshot/", Date))
-    }
+    try(if(testthat::is_testing()) return())
+    if(file.exists(".Renviron")) readRenviron(".Renviron")
 
-    # Programming Logic --------------------------------------------------------
-    suppressWarnings(try(set_repos(), silent = TRUE))
-    pkgs <- c("usethis", "testthat", "devtools")
-    invisible(sapply(pkgs, require, character.only = TRUE, quietly = TRUE, warn.conflicts = FALSE))
-
-    options(dashboard_source = file.path(getwd(), "inst/dashboard"))
-    options(dashboard_target = file.path(tempdir(), "dashboard"))
-    options(path_dashboard = getOption("dashboard_target"))
+    # Package Management System
+    Date <- as.character(read.dcf("DESCRIPTION", "Date"));
+    URL <- if(is.na(Date)) "https://cran.rstudio.com/" else paste0("https://mran.microsoft.com/snapshot/", Date)
+    options(repos = URL)
 }
 
-# Last --------------------------------------------------------------------
-.Last <- function(){}
+# .Last -------------------------------------------------------------------
+.Last <- function(){
+    try(if(testthat::is_testing()) return())
+}

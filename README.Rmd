@@ -1,95 +1,49 @@
 ---
 output: github_document
+link-citations: yes
+editor_options: 
+  canonical: true
+  markdown: 
+    wrap: 80
+    references: 
+      location: section
 ---
 
 ```{r setup, echo = FALSE, results = 'hide', message = FALSE, warning = FALSE}
-source("./AppData/README/helpers.R")
-pkgs <- c("desc", "devtools", "usethis")
-try(remotes::install_cran(pkgs), silent = TRUE)
-knitr::opts_chunk$set(
-  echo = FALSE, 
-  message = FALSE,
-  warning = FALSE,
-  results = 'hide',
-  fig.align = "center", 
-  out.width = "100%"
-)
+source(file.path(usethis::proj_get(), "vignettes",  "_common.R"))
 ```
 
-```{r get-info}
-#######################
-## Get Project Paths ##
-#######################
-path_project <- getwd()
-while (length(grep("test", path_project))>0) path_project <- dirname(path_project)
-devtools::load_all(path_project)
-
-############################# 
-## Get Package DESCRIPTION ##
-#############################
-library(desc)
-target <- file.path(path_project, "DESCRIPTION")
-desc_obj <- description$new(target)
-
-##########################
-## Set System Variables ##
-##########################
-package_url <- desc_obj$get_field("BugReports") %>% stringr::str_remove("/issues$")
-package_name <- desc_obj$get_field("Package")
-package_repo <- stringr::str_extract_all(package_url, "[^/]+(?://[^/]*)*")[[1]][2:3] %>% paste0(collapse ="/")
-Sys.setenv(CI_PROJECT_NAME = package_name)
-Sys.setenv(CI_PROJECT_URL = package_url)
-
-####################
-## Construct URLs ##
-####################
-travis_href <- paste0("https://travis-ci.org/", package_repo)
-travis_src <- paste0(travis_href, ".svg?branch=master")
-
-covr_href <- paste0("https://codecov.io/github/", package_repo, "/", "?branch=master")
-covr_src <- paste0("https://codecov.io/gh/", package_repo, "/branch/master/graph/badge.svg")
-
-pkgdown_href <- desc_obj$get_urls()[[1]]
-pkgdown_src <- generate_shield_src(label = "Package Website", message = "Click-Here", color = "9cf")
-
-shiny_href <- "https://harell.shinyapps.io/template-dashboard/"
-shiny_src <- generate_shield_src(label = "Shiny Dashboard", message = "Click-Here", color = "ff8c69")
-```
-
-# ``r package_name``
-
-```{r add-badges}
-usethis::use_badge("Shiny Dashboard", shiny_href, shiny_src)
-usethis::use_badge("Package Website", pkgdown_href, pkgdown_src)
-usethis::use_badge("Travis Status", travis_href, travis_src)
-usethis::use_badge("Code Coverage Status", covr_href, covr_src)
-```
+# `template.dashboard` <img src="https://raw.githubusercontent.com/tidylab/template.dashboard/master/pkgdown/favicon/apple-touch-icon-180x180.png" align="right" style="float:right; height:75px"/>
 
 <!-- badges: start -->
-[![Shiny Dashboard](https://img.shields.io/badge/Shiny%20Dashboard-Click--Here-ff8c69.svg)](https://harell.shinyapps.io/template-dashboard/)
+
+[![R-CMD-check](https://github.com/tidylab/template.dashboard/workflows/R-CMD-check/badge.svg)](https://github.com/tidylab/template.dashboard/actions)
+[![Codecov test
+coverage](https://codecov.io/gh/tidylab/template.dashboard/branch/master/graph/badge.svg)](https://codecov.io/gh/tidylab/template.dashboard?branch=master)
+[![Shiny Dashboard](https://img.shields.io/badge/Shiny%20Dashboard-Click--Here-ff8c69.svg)](https://tidylab.shinyapps.io/template-dashboard/)
 [![Package Website](https://img.shields.io/badge/Package%20Website-Click--Here-9cf.svg)](https://tidylab.github.io/template.dashboard/)
-[![Travis Status](https://travis-ci.org/tidylab/template.dashboard.svg?branch=master)](https://travis-ci.org/tidylab/template.dashboard)
-[![Code Coverage Status](https://codecov.io/gh/tidylab/template.dashboard/branch/master/graph/badge.svg)](https://codecov.io/github/tidylab/template.dashboard/?branch=master)
+
 <!-- badges: end -->
-
-`r desc_obj$get_field("Title")`
----
-
-```{r, out.width = "75%"}
-knitr::include_graphics("https://i.imgur.com/RLEQkhe.png")
-```
 
 ## Overview
 
-`r desc_obj$get_field("Description")`
+Preconfigured dashboard that supports continuous development and deployment of a
+Shiny application. Committing to master branch triggers:
 
-See the [package website](`r desc_obj$get_urls()[[1]]`) for more information. 
+-   Dashboard deployment to <https://www.shinyapps.io/> (via `rsconnect`); and
+-   Package website deployment (via `pkgdown`).
 
 ## Installation
 
-You can install ``r package_name`` by using:
+You can install `template.dashboard` by using:
 
+```{r, eval=FALSE, echo=TRUE}
+install.packages("remotes")
+remotes::install_github("tidylab/template.dashboard")
 ```
-install.packages("devtools")
-devtools::install_github("`r package_repo`")
+
+## Tab Gallary
+
+```{r, echo = FALSE, out.width = "100%"}
+knitr::include_graphics("https://i.imgur.com/K37dI8n.png")
 ```
