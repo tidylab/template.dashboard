@@ -6,6 +6,10 @@
 [![R-CMD-check](https://github.com/tidylab/template.dashboard/workflows/R-CMD-check/badge.svg)](https://github.com/tidylab/template.dashboard/actions)
 [![Codecov test
 coverage](https://codecov.io/gh/tidylab/template.dashboard/branch/master/graph/badge.svg)](https://codecov.io/gh/tidylab/template.dashboard?branch=master)
+[![Shiny
+Dashboard](https://img.shields.io/badge/Shiny%20Dashboard-Click--Here-ff8c69.svg)](https://tidylab.shinyapps.io/template-dashboard/)
+[![Package
+Website](https://img.shields.io/badge/Package%20Website-Click--Here-9cf.svg)](https://tidylab.github.io/template.dashboard/)
 
 <!-- badges: end -->
 
