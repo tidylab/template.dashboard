@@ -32,17 +32,19 @@ app_ui <- function(request) {
                 tabItems(
                     tabItem(
                         tabName = "dashboard_13",
-                        fillRow(
-                            default_box(plotOutput("null_ggplot_1"), title = "1st Box"),
-                            default_box(plotOutput("null_ggplot_2"), title = "2nd Box"),
-                            flex = c(8, 4)
-                        ),#upper fillRow
-                        fillRow(
-                            default_box(plotOutput("null_ggplot_3"), title = "3rd Box"),
-                            default_box(plotOutput("null_ggplot_4"), title = "4th Box"),
-                            default_box(plotOutput("null_ggplot_5"), title = "5th Box"),
-                            flex = c(6, 2, 4)
-                        )#bottom fillRow
+                        fillPage(
+                            fillRow(
+                                default_box(plotOutput("null_ggplot_1"), title = "1st Box"),
+                                default_box(plotOutput("null_ggplot_2"), title = "2nd Box"),
+                                flex = c(8, 4)
+                            ),#upper fillRow
+                            fillRow(
+                                default_box(plotOutput("null_ggplot_3"), title = "3rd Box"),
+                                default_box(plotOutput("null_ggplot_4"), title = "4th Box"),
+                                default_box(plotOutput("null_ggplot_5"), title = "5th Box"),
+                                flex = c(6, 2, 4)
+                            )#bottom fillRow
+                        )#fillPage
                     )#Dashboard 13
                 )#tabItems
             ), #dashboardBody

@@ -13,5 +13,7 @@ app_server <- function(input, output, session) {
 
 
     # Your application server logic
-    output$null_ggplot <- renderPlot({null_ggplot})
+    output$null_ggplot_1 <- output$null_ggplot_2 <- renderPlot({null_ggplot})
+    output$null_ggplot_3 <- output$null_ggplot_4 <- output$null_ggplot_5 <- renderPlot({null_ggplot})
+
 }
