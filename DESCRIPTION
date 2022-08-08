@@ -16,6 +16,7 @@ BugReports: https://github.com/tidylab/template.dashboard/issues
 Depends: 
     R (>= 4.2)
 Imports: 
+    bs4Dash (>= 2.0.0),
     config (>= 0.3.1),
     golem (>= 0.3.2),
     shiny (>= 1.7.1)
