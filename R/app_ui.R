@@ -6,7 +6,7 @@
 #' @import bs4Dash
 #' @noRd
 app_ui <- function(request) {
-    # Your application UI logic
+    # Application UI logic ----------------------------------------------------
     tagList(
         # Leave this function for adding external resources
         golem_add_external_resources(),
@@ -26,9 +26,12 @@ app_ui <- function(request) {
             ), #dashboardSidebar
             body = dashboardBody(
                 tabItems(
+                    # d13fill_ui(id = "d13")
                     d13fluid_ui(id = "d13")
                 )#tabItems
-            )#dashboardBody
+            ),#dashboardBody
+            dark = FALSE,
+            fullscreen = FALSE
         )#dashboardPage
     )#tagList
 }
@@ -42,17 +45,11 @@ app_ui <- function(request) {
 #' @importFrom golem add_resource_path activate_js favicon bundle_resources
 #' @noRd
 golem_add_external_resources <- function() {
-    add_resource_path(
-        "www",
-        app_sys("app/www")
-    )
+    add_resource_path("www", app_sys("app/www"))
 
     tags$head(
         favicon(),
-        bundle_resources(
-            path = app_sys("app/www"),
-            app_title = "template.dashboard"
-        )
+        bundle_resources(path = app_sys("app/www"), app_title = "template.dashboard")
         # Add here other external resources
         # for example, you can add shinyalert::useShinyalert()
     )
