@@ -6,13 +6,15 @@
 #'
 #' @noRd
 #'
-#' @importFrom shiny NS tagList
+#' @importFrom shiny NS tagList tags
 #' @importFrom shiny fluidRow fluidPage
 d13fluid_ui <- function(id){
     ns <- NS(id)
+
+
     # Helper Functions --------------------------------------------------------
-    # plotOutput <- purrr::partial(shiny::plotOutput, height = "100%")
-    box <- purrr::partial(bs4Dash::box, collapsible = FALSE)
+    box <- purrr::partial(bs4Dash::box, collapsible = FALSE, height = "380px")
+    plotOutput <- purrr::partial(shiny::plotOutput, height = "100%")
 
 
     # Module Core -------------------------------------------------------------
@@ -48,7 +50,7 @@ d13fill_ui <- function(id){
 
     # Helper Functions --------------------------------------------------------
     # plotOutput <- purrr::partial(shiny::plotOutput, height = "100%")
-    box <- purrr::partial(bs4Dash::box, collapsible = FALSE, width = 12)
+    box <- purrr::partial(bs4Dash::box, collapsible = FALSE, inline = TRUE, width = 12)
 
 
     # Module Core -------------------------------------------------------------
