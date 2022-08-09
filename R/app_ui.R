@@ -29,7 +29,9 @@ app_ui <- function(request) {
                     # d13fill_ui(id = "d13")
                     d13fluid_ui(id = "d13")
                 )#tabItems
-            )#dashboardBody
+            ),#dashboardBody
+            dark = FALSE,
+            fullscreen = FALSE
         )#dashboardPage
     )#tagList
 }
