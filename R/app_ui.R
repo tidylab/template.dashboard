@@ -26,6 +26,7 @@ app_ui <- function(request) {
             ), #dashboardSidebar
             body = dashboardBody(
                 tabItems(
+                    # d13fill_ui(id = "d13")
                     d13fluid_ui(id = "d13")
                 )#tabItems
             )#dashboardBody

@@ -1,3 +1,35 @@
+#' d13fluid UI Function
+#'
+#' @description A shiny Module.
+#'
+#' @param id,input,output,session Internal parameters for {shiny}.
+#'
+#' @noRd
+#'
+#' @importFrom shiny NS tagList
+#' @importFrom shiny fluidRow fluidPage
+d13fluid_ui <- function(id){
+    ns <- NS(id)
+
+
+    # Module Core -------------------------------------------------------------
+    tabItem(
+        tabName = id,
+        fluidPage(
+            fluidRow(
+                box(plotOutput(ns("box_1")), title = "1st Box", width = 8),
+                box(plotOutput(ns("box_2")), title = "2nd Box", width = 4)
+            ),#upper fluidRow
+            fluidRow(
+                box(plotOutput(ns("box_3")), title = "3rd Box", width = 6),
+                box(plotOutput(ns("box_4")), title = "4th Box", width = 2),
+                box(plotOutput(ns("box_5")), title = "5th Box", width = 4)
+            )#bottom fluidRow
+        )#fluidPage
+    )#tabItem
+}
+
+
 #' d13fill UI Function
 #'
 #' @description A shiny Module.
@@ -35,10 +67,11 @@ d13fill_ui <- function(id){
     )#dashboard_13
 }
 
-#' d13fill Server Functions
+
+#' d13_Server Functions
 #'
 #' @noRd
-d13fill_server <- function(id){
+d13_server <- function(id){
     moduleServer( id, function(input, output, session){
         ns <- session$ns
 
