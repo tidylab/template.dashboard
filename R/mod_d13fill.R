@@ -1,4 +1,4 @@
-#' dashboard_13_shiny_fillPage UI Function
+#' d13fill UI Function
 #'
 #' @description A shiny Module.
 #'
@@ -7,7 +7,7 @@
 #' @noRd
 #'
 #' @importFrom shiny NS tagList
-mod_dashboard_13_shiny_fillPage_ui <- function(id){
+d13fill_ui <- function(id){
     ns <- NS(id)
 
     # Helper Functions --------------------------------------------------------
@@ -34,10 +34,10 @@ mod_dashboard_13_shiny_fillPage_ui <- function(id){
     )#dashboard_13
 }
 
-#' dashboard_13_shiny_fillPage Server Functions
+#' d13fill Server Functions
 #'
 #' @noRd
-mod_dashboard_13_shiny_fillPage_server <- function(id){
+d13fill_server <- function(id){
     moduleServer( id, function(input, output, session){
         ns <- session$ns
 

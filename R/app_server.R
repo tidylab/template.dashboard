@@ -5,6 +5,6 @@
 #' @noRd
 app_server <- function(input, output, session) {
     # Your application server logic
-    mod_dashboard_13_shiny_fillPage_server(id = "dashboard_13_shiny_fillPage")
+    d13fill_server(id = "d13fill")
 
 }

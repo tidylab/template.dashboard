@@ -27,7 +27,7 @@ app_ui <- function(request) {
             ), #dashboardSidebar
             body = dashboardBody(
                 tabItems(
-                    mod_dashboard_13_shiny_fillPage_ui(id = "dashboard_13_shiny_fillPage")
+                    d13fill_ui(id = "d13fill")
                 )#tabItems
             )#dashboardBody
         )#dashboardPage
