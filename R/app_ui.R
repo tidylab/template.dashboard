@@ -3,7 +3,6 @@
 #' @param request Internal parameter for `{shiny}`.
 #'     DO NOT REMOVE.
 #' @importFrom shiny tagList plotOutput
-#' @importFrom shiny fillRow fillPage fillCol
 #' @import bs4Dash
 #' @noRd
 app_ui <- function(request) {
@@ -20,14 +19,14 @@ app_ui <- function(request) {
                 sidebarMenu(
                     menuItem(
                         text = "Dashboard 13",
-                        tabName = "dashboard_13"
+                        tabName = "d13"
                     )#menuItem
                 ),#sidebarMenu
                 minified = FALSE
             ), #dashboardSidebar
             body = dashboardBody(
                 tabItems(
-                    d13fill_ui(id = "d13fill")
+                    d13fluid_ui(id = "d13")
                 )#tabItems
             )#dashboardBody
         )#dashboardPage

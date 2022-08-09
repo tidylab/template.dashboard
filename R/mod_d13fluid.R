@@ -1,4 +1,4 @@
-#' d13fill UI Function
+#' d13fluid UI Function
 #'
 #' @description A shiny Module.
 #'
@@ -7,38 +7,36 @@
 #' @noRd
 #'
 #' @importFrom shiny NS tagList
-#' @importFrom shiny fillRow fillPage fillCol
-d13fill_ui <- function(id){
+#' @importFrom shiny fluidRow fluidPage
+d13fluid_ui <- function(id){
     ns <- NS(id)
 
+
     # Helper Functions --------------------------------------------------------
-    # plotOutput <- purrr::partial(shiny::plotOutput, height = "100%")
     box <- purrr::partial(bs4Dash::box, collapsible = FALSE)
 
 
     # Module Core -------------------------------------------------------------
     tabItem(
         tabName = id,
-        fillPage(
-            fillRow(
-                box(plotOutput(ns("null_ggplot_1")), title = "1st Box", width = 12),
-                box(plotOutput(ns("null_ggplot_2")), title = "2nd Box", width = 12),
-                flex = c(8, 4)
-            ),#upper fillRow
-            fillRow(
-                box(plotOutput(ns("null_ggplot_3")), title = "3rd Box", width = 12),
-                box(plotOutput(ns("null_ggplot_4")), title = "4th Box", width = 12),
-                box(plotOutput(ns("null_ggplot_5")), title = "5th Box", width = 12),
-                flex = c(6, 2, 4)
-            )#bottom fillRow
-        )#fillPage
-    )#dashboard_13
+        fluidPage(
+            fluidRow(
+                box(plotOutput(ns("null_ggplot_1")), title = "1st Box", width = 8),
+                box(plotOutput(ns("null_ggplot_2")), title = "2nd Box", width = 4)
+            ),#upper fluidRow
+            fluidRow(
+                box(plotOutput(ns("null_ggplot_3")), title = "3rd Box", width = 6),
+                box(plotOutput(ns("null_ggplot_4")), title = "4th Box", width = 2),
+                box(plotOutput(ns("null_ggplot_5")), title = "5th Box", width = 4)
+            )#bottom fluidRow
+        )#fluidPage
+    )#tabItem
 }
 
-#' d13fill Server Functions
+#' d13fluid Server Functions
 #'
 #' @noRd
-d13fill_server <- function(id){
+d13fluid_server <- function(id){
     moduleServer( id, function(input, output, session){
         ns <- session$ns
 
