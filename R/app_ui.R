@@ -6,7 +6,7 @@
 #' @import bs4Dash
 #' @noRd
 app_ui <- function(request) {
-    # Your application UI logic
+    # Application UI logic ----------------------------------------------------
     tagList(
         # Leave this function for adding external resources
         golem_add_external_resources(),

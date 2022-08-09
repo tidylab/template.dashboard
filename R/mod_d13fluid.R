@@ -12,10 +12,6 @@ d13fluid_ui <- function(id){
     ns <- NS(id)
 
 
-    # Helper Functions --------------------------------------------------------
-    box <- purrr::partial(bs4Dash::box, collapsible = FALSE)
-
-
     # Module Core -------------------------------------------------------------
     tabItem(
         tabName = id,
