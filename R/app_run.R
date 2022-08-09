@@ -7,18 +7,15 @@
 #' @export
 #' @importFrom shiny shinyApp
 #' @importFrom golem with_golem_options
+#'
+#' @family golem
 run_app <- function(
-        onStart = NULL,
+        onStart = global,
         options = list(),
         enableBookmarking = NULL,
         uiPattern = "/",
         ...
 ) {
-    # Helper Functions --------------------------------------------------------
-    box <- purrr::partial(bs4Dash::box, collapsible = FALSE)
-
-
-    # Run Application ---------------------------------------------------------
     with_golem_options(
         app = shinyApp(
             ui = app_ui,

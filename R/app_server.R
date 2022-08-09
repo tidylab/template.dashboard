@@ -2,6 +2,8 @@
 #'
 #' @param input,output,session Internal parameters for {shiny}.
 #'     DO NOT REMOVE.
+#'
+#' @family golem
 #' @noRd
 app_server <- function(input, output, session) {
     # Your application server logic
