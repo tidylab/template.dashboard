@@ -7,9 +7,6 @@
 #' @import bs4Dash
 #' @noRd
 app_ui <- function(request) {
-    default_box <- purrr::partial(box, width = 12)
-    # plotOutput <- purrr::partial(shiny::plotOutput, height = "100%")
-
     # Your application UI logic
     tagList(
         # Leave this function for adding external resources
@@ -30,25 +27,9 @@ app_ui <- function(request) {
             ), #dashboardSidebar
             body = dashboardBody(
                 tabItems(
-                    tabItem(
-                        tabName = "dashboard_13",
-                        fillPage(
-                            fillRow(
-                                default_box(plotOutput("null_ggplot_1"), title = "1st Box"),
-                                default_box(plotOutput("null_ggplot_2"), title = "2nd Box"),
-                                flex = c(8, 4)
-                            ),#upper fillRow
-                            fillRow(
-                                default_box(plotOutput("null_ggplot_3"), title = "3rd Box"),
-                                default_box(plotOutput("null_ggplot_4"), title = "4th Box"),
-                                default_box(plotOutput("null_ggplot_5"), title = "5th Box"),
-                                flex = c(6, 2, 4)
-                            )#bottom fillRow
-                        )#fillPage
-                    )#Dashboard 13
+                    mod_dashboard_13_shiny_fillPage_ui(id = "dashboard_13_shiny_fillPage")
                 )#tabItems
-            ), #dashboardBody
-            title = "Skin Selector"
+            )#dashboardBody
         )#dashboardPage
     )#tagList
 }
